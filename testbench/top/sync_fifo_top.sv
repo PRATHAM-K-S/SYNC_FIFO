@@ -1,3 +1,4 @@
+`include "../macro/sync_fifo_macros.sv"
 `include "../interface/sync_fifo_if.sv"
 `include "../package/sync_fifo_pkg.sv"
 
