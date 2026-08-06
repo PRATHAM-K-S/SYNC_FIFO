@@ -4,6 +4,7 @@ package sync_fifo_pkg;
     `include "uvm_macros.svh"
 
     `include "../sequence/sync_fifo_seq_item.sv"
+    `include "../config/sync_fifo_agt_cfg.sv"
     `include "../driver/sync_fifo_drv.sv"
     `include "../monitor/sync_fifo_inp_mon.sv"
     `include "../monitor/sync_fifo_out_mon.sv"
