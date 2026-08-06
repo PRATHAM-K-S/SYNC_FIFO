@@ -15,25 +15,25 @@ class sync_fifo_test extends uvm_test;
 
     // Class constructor
     function new(string name="sync_fifo_test", uvm_component parent);
-        super.new(name, parent)
+        super.new(name, parent);
     endfunction
 
     // Build phase
     function void build_phase(uvm_phase phase);
 
         // get virtual interface
-        if(!uvm_config_db #(virtual sync_fifo_if)::get("this", "", "vif", vif)) begin
+        if(!uvm_config_db #(virtual sync_fifo_if)::get(this, "", "vif", vif)) begin
             `uvm_fatal("NOVIF", "virtual interface not found")
         end
 
         // active agent config
-        act_agt_cfg = sync_fifo_agt::type_id::create("act_agt_cfg");
+        act_agt_cfg = sync_fifo_agt_cfg::type_id::create("act_agt_cfg");
         act_agt_cfg.is_active = UVM_ACTIVE;
         act_agt_cfg.vif = vif;
         uvm_config_db #(sync_fifo_agt_cfg)::set(this, "env.act_agt", "cfg", act_agt_cfg);
 
         // passive agent config
-        pas_agt_cfg = sync_fifo_agt::type_id::create("pas_agt_cfg");
+        pas_agt_cfg = sync_fifo_agt_cfg::type_id::create("pas_agt_cfg");
         pas_agt_cfg.is_active = UVM_PASSIVE; 
         pas_agt_cfg.vif = vif;
         uvm_config_db #(sync_fifo_agt_cfg)::set(this, "env.pas_agt", "cfg", pas_agt_cfg);  
