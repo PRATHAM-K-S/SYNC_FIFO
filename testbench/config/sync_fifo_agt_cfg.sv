@@ -8,8 +8,8 @@ class sync_fifo_agt_cfg extends uvm_object;
     virtual sync_fifo_if vif;
 
     // Class constructor
-    function new(string name);
-        super.new(name)
+    function new(string name="sync_fifo_agt_cfg");
+        super.new(name);
     endfunction
     
 endclass //sync_fifo_agt_cfg extends uvm_object
