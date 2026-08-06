@@ -16,6 +16,7 @@ class sync_fifo_env extends uvm_env;
         super.new(name, parent)
     endfunction
 
+    // Build phase
     function void build_phase(uvm_phase phase);
 
         // active agent config
