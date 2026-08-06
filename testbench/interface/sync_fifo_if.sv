@@ -1,4 +1,4 @@
-interface sync_fifo_if(bit clk, bit rst);
+interface sync_fifo_if(input bit clk, input bit rst);
     
     // Input ports
     logic wr_cs;
