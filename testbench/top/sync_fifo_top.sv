@@ -1,5 +1,5 @@
-`include "../interface/sync_fifo_if"
-`include "../package/sync_fifo_pkg"
+`include "../interface/sync_fifo_if.sv"
+`include "../package/sync_fifo_pkg.sv"
 
 module sync_fifo_top;
 
