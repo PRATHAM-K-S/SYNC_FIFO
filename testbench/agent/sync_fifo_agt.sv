@@ -12,20 +12,20 @@ class sync_fifo_agt extends uvm_agent;
 
     // Class constructor
     function new(string name="sync_fifo_agt", uvm_component parent);
-        super.new(name, parent)
+        super.new(name, parent);
     endfunction 
 
     // Build phase
     function void build_phase(uvm_phase phase);
         // get config object
-        if(!uvm_config_db #(sync_fifo_agt_config)::get(this, "", "cfg", cfg)) begin
+        if(!uvm_config_db #(sync_fifo_agt_cfg)::get(this, "", "cfg", cfg)) begin
             `uvm_fatal("AGT_CFG", "Failed to get config object")
         end
 
         // build agent components dynamically
         if(cfg.is_active == UVM_ACTIVE) begin
             seqr = sync_fifo_seqr::type_id::create("seqr", this);
-            drv = sync_fifo_drv::type_id:create("drv", this);
+            drv = sync_fifo_drv::type_id::create("drv", this);
             inp_mon = sync_fifo_inp_mon::type_id::create("inp_mon", this);
         end
         else begin
