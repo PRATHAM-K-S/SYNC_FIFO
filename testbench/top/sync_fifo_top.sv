@@ -1,7 +1,11 @@
+`include "../interface/sync_fifo_if"
+`include "../package/sync_fifo_pkg"
+
 module sync_fifo_top;
 
     // Import uvm package
     import uvm_pkg::*;
+    import sync_fifo_pkg::*;
 
     // Signal declerations
     bit clk;
