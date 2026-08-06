@@ -16,7 +16,7 @@ class sync_fifo_seq_item extends uvm_sequence_item;
     bit empty;
 
     // Class constructor
-    function new(string name);
+    function new(string name="sync_fifo_seq_item");
         super.new(name);
     endfunction
 
