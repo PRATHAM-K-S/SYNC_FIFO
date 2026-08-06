@@ -9,7 +9,7 @@ class sync_fifo_env extends uvm_env;
 
     // Class constructor
     function new(string name="sync_fifo_env", uvm_component parent);
-        super.new(name, parent)
+        super.new(name, parent);
     endfunction
 
     // Build phase
