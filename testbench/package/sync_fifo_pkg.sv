@@ -13,6 +13,7 @@ package sync_fifo_pkg;
     `include "../scoreboard/sync_fifo_scr.sv"
     `include "../coverage/sync_fifo_cov.sv"
     `include "../environment/sync_fifo_env.sv"
+    `include "../sequence/sync_fifo_seq.sv"
     `include "../test/sync_fifo_test.sv"
     
 endpackage
