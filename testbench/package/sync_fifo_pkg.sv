@@ -10,6 +10,8 @@ package sync_fifo_pkg;
     `include "../monitor/sync_fifo_out_mon.sv"
     `include "../sequencer/sync_fifo_seqr.sv"
     `include "../agent/sync_fifo_agt.sv"
+    `include "../scoreboard/sync_fifo_scr.sv"
+    `include "../coverage/sync_fifo_cov.sv"
     `include "../environment/sync_fifo_env.sv"
     `include "../test/sync_fifo_test.sv"
     
