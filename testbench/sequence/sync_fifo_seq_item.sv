@@ -24,7 +24,7 @@ class sync_fifo_seq_item extends uvm_sequence_item;
     function string convert2string();
         string s;
         s = super.convert2string();
-        $sformat(s, "%s\n wr_cs \t%0b\n rd_cs \t%0b\n wr_en \t%0b\n rd_en \t%0b\n data_in \t%0d\n data_out \t%0d\n full \t%0b\n empty \t%0b\n",
+        $sformat(s, "%s\n wr_cs \t%0d\n rd_cs \t%0d\n wr_en \t%0d\n rd_en \t%0d\n data_in \t%0d\n data_out \t%0d\n full \t%0d\n empty \t%0d\n",
         s, wr_cs, rd_cs, wr_en, rd_en, data_in, data_out, full, empty);
         return s;
     endfunction
