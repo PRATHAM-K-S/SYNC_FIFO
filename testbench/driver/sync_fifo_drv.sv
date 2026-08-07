@@ -23,7 +23,7 @@ class sync_fifo_drv extends uvm_driver #(sync_fifo_seq_item);
 
     // Drive item
     task drive_item(input sync_fifo_seq_item req_item);
-        `uvm_info("DRIVER", req_item.convert2String(), UVM_NONE);
+        `uvm_info("DRIVER", req_item.convert2string(), UVM_NONE);
         @(vif.drv_cb);
         vif.drv_cb.wr_cs <= req_item.wr_cs;
         vif.drv_cb.rd_cs <= req_item.rd_cs;
