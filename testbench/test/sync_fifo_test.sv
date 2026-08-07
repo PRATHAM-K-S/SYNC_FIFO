@@ -8,6 +8,7 @@ class sync_fifo_test extends uvm_test;
 
     // Handle declerations
     sync_fifo_env env;
+    sync_fifo_seq seq;
 
     // Config Handle declerations
     sync_fifo_agt_cfg act_agt_cfg;
@@ -47,5 +48,13 @@ class sync_fifo_test extends uvm_test;
     function void end_of_elaboration_phase(uvm_phase phase);
         uvm_top.print_topology();
     endfunction
+
+    // Run phase
+    task run_phase(uvm_phase phase);
+        phase.raise_objection(this);
+        seq = sync_fifo_seq::type_id::create("seq");
+        seq.start(env.act_agt.seqr);
+        phase.drop_objection(this);
+    endtask
 
 endclass //sync_fifo_test extends uvm_test
