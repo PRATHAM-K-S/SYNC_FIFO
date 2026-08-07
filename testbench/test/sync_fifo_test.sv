@@ -54,6 +54,7 @@ class sync_fifo_test extends uvm_test;
         phase.raise_objection(this);
         seq = sync_fifo_seq::type_id::create("seq");
         seq.start(env.act_agt.seqr);
+        #20; //drain time
         phase.drop_objection(this);
     endtask
 
