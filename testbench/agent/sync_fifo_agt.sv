@@ -36,9 +36,10 @@ class sync_fifo_agt extends uvm_agent;
     // Connect phase
     function void connect_phase(uvm_phase phase);
         // virtual interface configuration
-        if(cfg.is_active) begin
+        if(cfg.is_active == UVM_ACTIVE) begin
             drv.vif = cfg.vif;
             inp_mon.vif = cfg.vif;
+            drv.seq_item_port.connect(seqr.seq_item_export);
         end
         else begin
             out_mon.vif = cfg.vif;
