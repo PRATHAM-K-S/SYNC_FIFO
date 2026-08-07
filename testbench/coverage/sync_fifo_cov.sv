@@ -5,7 +5,10 @@ class sync_fifo_cov extends uvm_subscriber #(sync_fifo_seq_item);
 
     // Class constructor
     function new(string name="sync_fifo_cov", uvm_component parent);
-        super.new(name, this);
+        super.new(name, parent);
     endfunction 
+
+    function void write(sync_fifo_seq_item item);
+    endfunction
 
 endclass //sync_fifo_cov extends uvm_subscriber #(sync_fifo_seq_item)
