@@ -15,6 +15,7 @@ package sync_fifo_pkg;
     `include "../environment/sync_fifo_env.sv"
     `include "../sequence/sync_fifo_seq.sv"
     `include "../sequence/sync_fifo_burst_write_seq.sv"
+    `include "../sequence/sync_fifo_burst_read_seq.sv"
     `include "../test/sync_fifo_test.sv"
     
 endpackage
