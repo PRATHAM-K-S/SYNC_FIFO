@@ -29,4 +29,22 @@ class sync_fifo_seq_item extends uvm_sequence_item;
         return s;
     endfunction
 
+    // do_copy method
+    function void do_copy(uvm_object rhs);
+        sync_fifo_seq_item rhs_;
+        if(!$cast(rhs_, rhs)) begin
+            `uvm_error("COPY", "cast failed")
+            return;
+        end
+        super.do_copy(rhs);
+        wr_cs = rhs_.wr_cs;
+        rd_cs = rhs_.rd_cs;
+        wr_en = rhs_.wr_en;
+        rd_en = rhs_.rd_en;
+        data_in = rhs_.data_in;
+        data_out = rhs_.data_out;
+        full = rhs_.full;
+        empty = rhs_.empty;
+    endfunction
+
 endclass
