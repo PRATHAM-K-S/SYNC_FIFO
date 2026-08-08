@@ -23,4 +23,9 @@ class sync_fifo_env extends uvm_env;
         cov = sync_fifo_cov::type_id::create("cov", this);
     endfunction
 
+    // Connect phase
+    function void connect_phase(uvm_phase phase);
+        act_agt.inp_mon_ap.connect(scr.pred_axp);
+    endfunction
+
 endclass //sync_fifo_env extends uvm_env
