@@ -9,6 +9,7 @@ class sync_fifo_agt extends uvm_agent;
     sync_fifo_inp_mon inp_mon;
     sync_fifo_out_mon out_mon;
     sync_fifo_agt_cfg cfg;
+    uvm_analysis_port #(sync_fifo_seq_item) inp_mon_ap;
 
     // Class constructor
     function new(string name="sync_fifo_agt", uvm_component parent);
@@ -27,6 +28,7 @@ class sync_fifo_agt extends uvm_agent;
             seqr = sync_fifo_seqr::type_id::create("seqr", this);
             drv = sync_fifo_drv::type_id::create("drv", this);
             inp_mon = sync_fifo_inp_mon::type_id::create("inp_mon", this);
+            inp_mon_ap = new("inp_mon_ap", this);
         end
         else begin
             out_mon = sync_fifo_out_mon::type_id::create("out_mon",this);
@@ -40,6 +42,7 @@ class sync_fifo_agt extends uvm_agent;
             drv.vif = cfg.vif;
             inp_mon.vif = cfg.vif;
             drv.seq_item_port.connect(seqr.seq_item_export);
+            inp_mon.ap.connect(inp_mon_ap);
         end
         else begin
             out_mon.vif = cfg.vif;
