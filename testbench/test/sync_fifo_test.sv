@@ -8,7 +8,8 @@ class sync_fifo_test extends uvm_test;
 
     // Handle declerations
     sync_fifo_env env;
-    sync_fifo_seq seq;
+    //sync_fifo_seq seq;
+    sync_fifo_burst_write_seq seq;
 
     // Config Handle declerations
     sync_fifo_agt_cfg act_agt_cfg;
@@ -52,7 +53,8 @@ class sync_fifo_test extends uvm_test;
     // Run phase
     task run_phase(uvm_phase phase);
         phase.raise_objection(this);
-        seq = sync_fifo_seq::type_id::create("seq");
+        //seq = sync_fifo_seq::type_id::create("seq");
+        seq = sync_fifo_burst_write_seq::type_id::create("seq");
         seq.start(env.act_agt.seqr);
         #20; //drain time
         phase.drop_objection(this);
