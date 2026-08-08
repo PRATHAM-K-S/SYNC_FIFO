@@ -35,9 +35,9 @@ interface sync_fifo_if(input bit clk, input bit rst);
     // Output monitor clocking block
     clocking out_mon_cb @(posedge clk);
         default input #1step;
-        output data_out;
-        output full;
-        output empty;
+        input data_out;
+        input full;
+        input empty;
     endclocking
 
     // Modports
