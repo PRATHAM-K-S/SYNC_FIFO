@@ -50,4 +50,10 @@ module sync_fifo_top;
         end
     end
 
+    initial begin
+        rst = 1;
+        #20;
+        rst = 0;
+    end
+
 endmodule
