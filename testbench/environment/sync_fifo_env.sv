@@ -26,6 +26,7 @@ class sync_fifo_env extends uvm_env;
     // Connect phase
     function void connect_phase(uvm_phase phase);
         act_agt.inp_mon_ap.connect(scr.pred_axp);
+        pas_agt.out_mon_ap.connect(scr.comp_axp);
     endfunction
 
 endclass //sync_fifo_env extends uvm_env
