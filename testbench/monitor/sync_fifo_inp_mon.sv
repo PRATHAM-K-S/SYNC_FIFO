@@ -29,6 +29,7 @@ class sync_fifo_inp_mon extends uvm_monitor;
 
     task collect_item(input sync_fifo_seq_item seq_item);
         @(vif.inp_mon_cb);
+        seq_item.rst = vif.rst;
         seq_item.wr_cs = vif.inp_mon_cb.wr_cs;
         seq_item.rd_cs = vif.inp_mon_cb.rd_cs;
         seq_item.wr_en = vif.inp_mon_cb.wr_en;
