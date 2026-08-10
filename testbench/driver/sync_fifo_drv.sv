@@ -29,7 +29,7 @@ class sync_fifo_drv extends uvm_driver #(sync_fifo_seq_item);
         vif.drv_cb.wr_en <= req_item.wr_en;
         vif.drv_cb.rd_en <= req_item.rd_en;
         vif.drv_cb.data_in <= req_item.data_in;
-        `uvm_info("DRIVER", req_item.convert2string(), UVM_NONE);
+        //`uvm_info("DRIVER", req_item.convert2string(), UVM_NONE);
     endtask
 
 endclass
