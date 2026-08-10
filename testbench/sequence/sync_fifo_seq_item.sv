@@ -3,7 +3,10 @@ class sync_fifo_seq_item extends uvm_sequence_item;
     // Factory registration
     `uvm_object_utils(sync_fifo_seq_item)
 
-    // Input signals
+    // Reset signal
+    bit rst;
+
+    // Randomized input signals
     rand bit wr_cs;
     rand bit rd_cs;
     rand bit wr_en;
@@ -24,8 +27,8 @@ class sync_fifo_seq_item extends uvm_sequence_item;
     function string convert2string();
         string s;
         s = super.convert2string();
-        $sformat(s, "%s\n wr_cs \t%0d\n rd_cs \t%0d\n wr_en \t%0d\n rd_en \t%0d\n data_in \t%0d\n data_out \t%0d\n full \t%0d\n empty \t%0d\n",
-        s, wr_cs, rd_cs, wr_en, rd_en, data_in, data_out, full, empty);
+        $sformat(s, "%s\n rst\t%0d\n wr_cs \t%0d\n rd_cs \t%0d\n wr_en \t%0d\n rd_en \t%0d\n data_in \t%0d\n data_out \t%0d\n full \t%0d\n empty \t%0d\n",
+        s, rst, wr_cs, rd_cs, wr_en, rd_en, data_in, data_out, full, empty);
         return s;
     endfunction
 
@@ -37,6 +40,7 @@ class sync_fifo_seq_item extends uvm_sequence_item;
             return;
         end
         super.do_copy(rhs);
+        rst = rhs_.rst;
         wr_cs = rhs_.wr_cs;
         rd_cs = rhs_.rd_cs;
         wr_en = rhs_.wr_en;
