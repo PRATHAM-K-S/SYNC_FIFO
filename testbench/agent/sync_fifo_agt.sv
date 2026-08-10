@@ -10,6 +10,7 @@ class sync_fifo_agt extends uvm_agent;
     sync_fifo_out_mon out_mon;
     sync_fifo_agt_cfg cfg;
     uvm_analysis_port #(sync_fifo_seq_item) inp_mon_ap;
+    uvm_analysis_port #(sync_fifo_seq_item) out_mon_ap;
 
     // Class constructor
     function new(string name="sync_fifo_agt", uvm_component parent);
@@ -32,6 +33,7 @@ class sync_fifo_agt extends uvm_agent;
         end
         else begin
             out_mon = sync_fifo_out_mon::type_id::create("out_mon",this);
+            out_mon_ap = new("out_mon_ap", this);
         end
     endfunction
 
@@ -46,6 +48,7 @@ class sync_fifo_agt extends uvm_agent;
         end
         else begin
             out_mon.vif = cfg.vif;
+            out_mon.ap.connect(out_mon_ap);
         end
     endfunction
 
