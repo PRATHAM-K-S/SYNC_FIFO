@@ -5,7 +5,9 @@ class sync_fifo_scr extends uvm_scoreboard;
 
     // Handle decleration
     sync_fifo_pred pred;
+    sync_fifo_comp comp;
     uvm_analysis_export #(sync_fifo_seq_item) pred_axp;
+    uvm_analysis_export #(sync_fifo_seq_item) comp_axp;
 
     // Class construction
     function new(string name="sync_fifo_scr", uvm_component parent);
@@ -15,12 +17,16 @@ class sync_fifo_scr extends uvm_scoreboard;
     // Build phase
     function void build_phase(uvm_phase phase);
         pred = sync_fifo_pred::type_id::create("pred", this);
+        comp = sync_fifo_comp::type_id::create("comp", this);
         pred_axp = new("pred_axp", this);
+        comp_axp = new("comp_axp", this);
     endfunction
 
     // Connect Phase
     function void connect_phase(uvm_phase phase);
         pred_axp.connect(pred.analysis_export);
+        pred.ap.connect(comp.pred_imp);
+        comp_axp.connect(comp.dut_imp);
     endfunction
 
 endclass //sync_fifo_scr extends uvm_scoreboard
