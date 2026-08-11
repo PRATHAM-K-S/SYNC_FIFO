@@ -5,3 +5,6 @@ ucli.key
 vc_hdrs.h
 work/
 transcript
+simv.vdb/
+.fsm.sch.verilog.xml
+cm.log
